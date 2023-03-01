@@ -1,0 +1,51 @@
+<section class="colorPageContactMe">
+    <h2 class="contactMeTitle text-center ">Contacto</h2>
+    <div class="container d-flex justify-content-center pb-5">
+        <div class="contact p-5 ">
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+              <input type="email" class="styleInput form-control" id="email" name="email" placeholder="Email" required formControlName="email" />
+              <label for="email" class="form-label">Email</label>
+              <span *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']">
+                *El campo es requirido.
+              </span>
+              <span *ngIf="contactForm.get('email')?.errors?.['email']">
+                *Ingrese un email correcto.
+              </span>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="styleInput form-control" id="name" name="name" placeholder="Nombre" required formControlName="name"/>
+              <label for="name" class="form-label">Nombre</label>
+              <span *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required']">*El campo es requerido.</span>
+            <span *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['minlength']">*El nombre debe ser mayor a 
+                {{ contactForm.get('name')?.errors?.['minlength']?.requiredLength}} caracteres.</span>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="styleInput form-control" id="subject" name="subject" placeholder="Subject" required formControlName="subject"  />
+                <label for="subject" class="form-label">Asunto</label>
+                <span *ngIf="contactForm.get('subject')?.touched && contactForm.get('subject')?.errors?.['required']">*El campo es requerido.</span>
+              </div>
+            <div class="form-floating mb-3">
+                <textarea formControlName="message" class="text form-control" id="textarea1" placeholder="Mensaje" rows="3" required>
+                </textarea>
+                <label for="textarea1" class="form-label">Mensaje</label>
+                <span *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.errors?.['required']">
+                    *El campo es requerido.
+                  </span>
+                  <span *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.errors?.['maxlength']">
+                    *Debe tener como máximo {{contactForm.get('message')?.errors?.['maxlength'].requiredLength}} caracteres.
+                  </span>
+              </div>
+              <div class=" d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary"  [disabled]="contactForm.invalid">Enviar</button>
+        </div>
+          </form>
+
+        </div>
+    
+ 
+  </div>
+
+  
+</section>

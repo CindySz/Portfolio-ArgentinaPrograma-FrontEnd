@@ -1,0 +1,83 @@
+.loginPage{
+
+  padding-bottom: 15.8%;
+ height: 100%;
+
+  }
+
+
+
+.loginTitle{
+    padding: 2% 4%;
+    padding-top: 9rem;
+
+}
+
+.contact{
+    width: 34rem;
+    height: 23rem;
+    background-color: #a25b5c;
+    border-radius: 4%;
+    -webkit-border-radius: 4%;
+    -moz-border-radius: 4%;
+    -ms-border-radius: 4%;
+    -o-border-radius: 4%;
+}
+
+form{
+  padding-top: 1rem;
+}
+
+
+
+.styleInput{
+    height:2.8rem; 
+    margin-bottom: 1rem;
+    
+}
+
+
+label{
+    color: rgba(109, 106, 106, 0.839);
+}
+.form-control:focus {
+    border-color: #a2a1a1;
+    box-shadow: inset 0 1px 1px rgba(179, 178, 178, 0.075), 0 0 8px rgba(137, 136, 136, 0.6);
+  }
+
+  button{
+    background: #ebc6af;
+    border: none;
+    font-family: 'Cooper Hewitt';
+    width: 10rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    color: #575353;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 1s all;
+    
+}
+
+
+
+  button:hover {
+        background: #f7c2a2;
+        color: var(--black);
+        font-weight: bold;
+        transform: scale(1.1);
+        box-shadow: 0px 9px 15px -1px rgba(0,0,0,0.20);
+        transition: all .4s ease;
+    }
+
+    button:disabled{
+        background: #ebc6afbe;
+        color: #575353df;
+    }
+
+    span{
+        color: rgb(255, 255, 255);
+        width: 600;
+    }
+ 

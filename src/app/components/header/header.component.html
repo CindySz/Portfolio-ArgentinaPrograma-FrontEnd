@@ -1,0 +1,58 @@
+
+<header class="headerScroll">
+    <div>
+    <p>cindy.</p>
+</div>
+
+
+   
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="navbar-brand" ></div>
+    
+     
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+   
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div>
+      <ul class="navbar-nav  mr-auto mt-2 mt-lg-0">
+        <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="home">Home</a></li>
+        <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="about-me">Sobre mí</a></li>
+        <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="experience">Experiencia</a></li>
+        <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="education">Educación</a></li>
+        <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="skill">Habilidades</a></li>
+        <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="proyect">Proyectos</a></li>
+        <li><a  class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="contact">Contacto</a></li>
+      
+      </ul>
+
+    </div>
+
+      <div class="language">
+        <button  class="btn" *ngIf="!auth.isLoggedIn()" routerLink="/log-in"> Log in </button>
+        <button  class="btn"  *ngIf="auth.isLoggedIn()" routerLink="/" (click) = "logOut()"> Log out </button>
+        <!-- <img   src="../../../assets/img/icon-spain.png" alt="spanish">
+        <img  class="en" src="../../../assets/img/icon-en.png" alt="english">   -->
+    </div>
+     
+    </div>
+
+
+  </nav>
+ 
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+
+
