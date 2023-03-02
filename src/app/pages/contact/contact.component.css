@@ -66,10 +66,9 @@ label{
         background: #ebc6afbe;
         color: #575353df;
     }
-
-    .active {
-        background-color: green !important;
-      }
+    .btn-contact:not(:disabled):not(:disabled):active {
+        background-color:  #f7c2a2;
+     } 
 
     span{
         color: rgb(255, 255, 255);

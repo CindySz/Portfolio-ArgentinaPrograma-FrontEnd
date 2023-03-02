@@ -76,6 +76,10 @@ label{
         color: #575353df;
     }
 
+    .btn-login:not(:disabled):not(:disabled):active {
+        background-color:  #f7c2a2;
+     } 
+
     span{
         color: rgb(255, 255, 255);
         width: 600;
