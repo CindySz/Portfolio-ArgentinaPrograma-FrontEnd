@@ -10,15 +10,31 @@
 }
 
 
+
+
 .homePage{
-display: flex;
-justify-content: space-evenly;
-align-items: center;
+/* min-height: 100%; */
+
+height: 100vh;
 background-color: var(--first-color);
+display: flex;
+flex-direction: column;
+
+
+}
+
+
+.homeSection{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
 padding-left: 17%;
 padding-right: 10% ;
-padding-top: 11rem;
+margin-top: 10rem;
 gap: 10%;
+
+
 
 }
 
@@ -36,7 +52,7 @@ gap: 10%;
     font-weight: 700;
   
 }
-.textHomePageh5{
+.textHomePageh3{
    
     letter-spacing: .1rem;
     width: 21.5rem;
@@ -56,12 +72,19 @@ gap: 10%;
 article{
     /*en mobile esta medida debe ser menor*/
    width: 600px;
+  
  
    
 }
 
+.boxCv{
+
+  display: flex;
+  justify-content: center;
+}
+
 .link-cv{
-    background-color: transparent;
+    background-color:transparent;
     border: 2px solid var(--button-color);
     border-radius: 0.6em;
     color: var(--button-color);
@@ -86,37 +109,106 @@ article{
     box-shadow: 0 0 40px 40px var(--button-color) inset;
   }
 
+ 
+
   .line{
-  background-color: #E09868;
-  width: 6px;
-  height: 14rem;
-  position: relative;
-  left: 0.5rem;
+ display: none;
+  
   }
 
   .socialnetwork{
     background-color: var(--first-color);
+    margin-top: 2rem;
+   
+  
     
   }
 
   .boxSocial{
-    
-    width: 20%;
-    position: relative;
-    left: 4rem;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
     
   }
 
   .socialLink{
    
     text-decoration:none;
-    width: 8%;
     color:#E09868;}
 
 .bi{
-    font-size: 22px;
+    font-size: 24px;
+   
     }
 
+    img{
+     display: none;
+    }
+
+
+    @media only screen and (min-width: 768px) {
+
+
+      .homePage{
+        
+      }
+
+
+      .homeSection{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-left: 17%;
+        padding-right: 10% ;
+        padding-top: 5rem;
+        gap: 10%;
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 20%;
+        right: 0;
+        margin: auto;
+        
+        }
+      .line{
+        display: block;
+        background-color: #E09868;
+        width: 6px;
+        height: 10rem;
+        position: relative;
+        left: 0.5rem;
+        
+        }
+      
+        .socialnetwork{
+          background-color: var(--first-color);
+          position: absolute;
+          bottom: 0;
+          left: 4%;
+          
+        }
+      
+        .boxSocial{
+          
+          width: 20%;
+          position: relative;
+          left: 4%;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          
+        }
+
+        .boxCv{
+          display: block;
+        }
+
+        img{
+          display: block;
+          width: 100%;
+        }
+
+    }
     

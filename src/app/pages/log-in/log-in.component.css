@@ -1,7 +1,6 @@
 .loginPage{
 
-  padding-bottom: 15.8%;
- height: 100%;
+  padding-bottom: 1rem;
 
   }
 
@@ -9,7 +8,8 @@
 
 .loginTitle{
     padding: 2% 4%;
-    padding-top: 9rem;
+    padding-top: 8rem;
+   
 
 }
 
