@@ -1,29 +1,115 @@
 <section class="homeExperience">
 
    
-<h2 class="expTitle text-center ">Experiencia</h2>
-<div *ngFor="let item of workExperience" class="container">
+<h2 class="expTitle text-center ">Experiencia <i  *ngIf="auth.isLoggedIn()" (click)="addJob()" class="bi bi-plus-circle-fill"></i></h2>
 
+<!--                                                       -->
+<div class="container" *ngIf="clickAdd">
 <div class="box d-flex flex-row pb-4">
-<div class="boxImg col-4 text-end">
-    <img class="" src="../../../assets/img/sr.png" alt="Logo de Empresa"/>
+
+    <div class="col-4 text-end">
+       
+    </div>
+    
+    <div  class="w-50 mb-4" >
+    <div>
+
+
+
+<form   [formGroup]="postForm" (ngSubmit)="onSubmitPost()" > 
+       
+
+    <div    formArrayName="postform" >
+          
+       <div *ngFor="let post of postform.controls; let i=index" [formGroupName]="i">   
+                       
+       <ul>
+        <li><h6>Link de imagen de la empresa:<input   formControlName="img"  [ngStyle]="clickAdd ? styles :  null"     [readonly]="!clickAdd" id="img" name="imgPost" />  </h6></li>
+       <li><h6>Puesto:<input  formControlName="job"  [ngStyle]="clickAdd ? styles :  null"     [readonly]="!clickAdd" id="jobPost" name="jobPost" />  </h6></li>
+       <li><h6>Fecha:<input   formControlName="date"  [ngStyle]="clickAdd ? styles :  null"  [readonly]="!clickAdd"  id="datePost" name="datePost"  /></h6></li>
+       <li> <h6>Empresa:  <input   formControlName="companyName" [ngStyle]="clickAdd ? styles :  null" [readonly]="!clickAdd"   id="companyNamePost" name="companyNamePost"/> </h6></li>
+       <li><h6> Descripción: <textarea  formControlName="description" [ngStyle]="clickAdd ? styles :  null"   [readonly]="!clickAdd" id="descriptionPost" name="descriptionPost" ></textarea></h6></li>
+      
+       <button type="button" className="btnCancelSave" (click)="cancelEditModePost()" > <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+       <button  type="submit" className="btnCancelSave" > <i class="bi bi-check-circle-fill" ></i> Guardar</button>
+   
+   </ul>
+   </div>
+   </div>
+
+   
+   
+   
+    </form>
+
+</div>
+</div>
+</div>
 </div>
 
-<div  class="mb-4" >
-    
+ <!--                                                       -->
+
+<div *ngFor="let item of workExperience;  let i = index" class="container">
+    <div class="box d-flex flex-row pb-4">
+    <div  class="col-4 text-end">
+        <div class="boxImg">
+
+    <img class="" src={{item.img}} alt="Logo de Empresa"/>
+</div>
+</div>
+
+
+
+<div  class="w-50 mb-4" >
+
+   
+   
+    <div>
+
+      
+    <form [formGroup]="experienceForm" (ngSubmit)="onSubmit(item,i)"> 
+       
+          
+ <div formArrayName="expform" >
+        <!-- <div  *ngFor="let element of expform().controls; let i=index"  > -->
+    <div  [formGroupName]="i">
+      
+        
+                    
     <ul>
-    
-    <li><h5>{{item.job}}  </h5></li>
-    <li><h6>{{item.date}}</h6></li>
-    <li> Empresa: {{item.companyName}}</li>
-    <li> Descripción: {{item.description}}</li>
+    <li><h5><input  formControlName="job" [ngStyle]="editAddCompanyDetails[i] ? styles :  null"  value="{{item.job}}"  [readonly]="!editAddCompanyDetails[i]"  id="job" name="job" /> </h5> </li>
+    <li><h6><input   formControlName="date" [ngStyle]="editAddCompanyDetails[i] ? styles :  null"     value="{{item.date}}"  [readonly]="!editAddCompanyDetails[i]" id="date" name="date"  /></h6></li>
+    <li> Empresa: <input   formControlName="companyName" [ngStyle]="editAddCompanyDetails[i] ? styles :  null"    value="{{item.companyName}}"  [readonly]="!editAddCompanyDetails[i]" id="companyName" name="companyName"/> </li>
+    <li> Descripción: <textarea  formControlName="description" [ngStyle]="editAddCompanyDetails[i] ? styles :  null"   value=" {{item.description}}"  [readonly]="!editAddCompanyDetails[i]" id="description" name="description" ></textarea></li>
+   
+    <button type="button" className="btnCancelSave" (click)="cancelEditMode(item,i)" *ngIf="editAddCompanyDetails[i]"> <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+    <button  type="submit" className="btnCancelSave"  *ngIf="editAddCompanyDetails[i]"> <i class="bi bi-check-circle-fill" ></i> Guardar</button>
+
 </ul>
-  
+</div>
+</div>
+<!-- </div> -->
+
+
+ </form>
+
+
+</div>
+
 
     
+ 
 </div>
+
+<div>
+<i  *ngIf="auth.isLoggedIn()" (click)="onDeleteExperience(item)" class="bi bi-trash3-fill"></i>
+<i *ngIf="auth.isLoggedIn()" (click)="editCompanyDetails(i)" class="bi bi-pencil-square"></i>
+
+</div>
+
 </div>
 </div>
 
 
 </section>
+

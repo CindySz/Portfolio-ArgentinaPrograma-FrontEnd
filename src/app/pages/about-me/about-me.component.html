@@ -1,40 +1,35 @@
 <section class="container">
-
-<article>
+  <article>
     <h2 class="titleAboutMe text-center">Sobre mí</h2>
-    <div  class="row ">
-    
-    <div class=" col-sm-12  col-lg-6 p-5"  >
-        
-        
-        <div id="pt" class="pt-5">
 
-        <h3>Cindy Suarez</h3>
-        <p >
-            Soy de Argentina, Buenos Aires. En el 2021 decidí comenzar programación para hacer sinergía con la carrera que estudio, Lic. en Administración en la UBA. 
-            En el camino descubrí que aprender programación me apasiona, además, me permite ser creativa, independiente y me desafía continuamente. En la actualidad,
-            estoy en 2do año del curso Certified Tech Developer en Digital House (estudiando la especialización Front End) y en paralelo estoy en #YoProgramo, 
-            es un curso de la segunda etapa de Argentina Programa 4.0.
-            <br/>Soy una persona empática y entusiasta, con competencias enfocadas en el trabajo en equipo, comunicación asertiva, proactiva y responsable,
-            me gusta aprender de los demás y superarme continuamente.
-            
-        </p>
-    </div>
-    </div>
+    <div class="row">
+      <div class="col-sm-12 col-lg-6 p-5">
+        <div class="box pt-5 d-flex justify-content-between">
+          <div class="box1">
+            <h3>Cindy Suarez</h3>
+            <textarea [ngStyle]="editAboutMe ? styles :  null"  [(ngModel)]="textAboutMe"   [readonly]="!editAboutMe" > </textarea>
+            <button className="btnCancelSave" (click)="cancelEditMode()" *ngIf="editAboutMe"> <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+    <button  type="submit" className="btnCancelSave"  (click)="submitSaveEditMode()"  *ngIf="editAboutMe"> <i class="bi bi-check-circle-fill" ></i> Guardar</button>
+          </div>
+
+          <div class="iconEdit">
+            <i
+              *ngIf="auth.isLoggedIn()"
+              (click)="edit()"
+              class="bi bi-pencil-square"
+            ></i>
+          </div>
 
 
-    <div class=" order-lg-first col-sm-12  col-lg-6">
-    
-        <img src="../../../assets/img/Free Vectors, Stock Photos & PSD Downloads _ Freepik.jpg" alt="Imagen"/>
         </div>
-</div>
+      </div>
 
-
-</article>
-
+      <div class="order-lg-first col-sm-12 col-lg-6">
+        <img
+          src="../../../assets/img/Free Vectors, Stock Photos & PSD Downloads _ Freepik.jpg"
+          alt="Imagen"
+        />
+      </div>
+    </div>
+  </article>
 </section>
-
-    
-
-   
-

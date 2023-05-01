@@ -19,7 +19,7 @@ export class ContactComponent {
    }
 
   onSubmit():void{
-    let result="";
+  
 
    if(this.contactForm.valid){
     Swal.fire({
@@ -31,7 +31,12 @@ export class ContactComponent {
 
     this.contactForm.reset();
 
-    console.log("enviado");
+    // console.log("enviado");
+
+    // console.log(this.contactForm.value);
+    
+    
+    
     
 
   }

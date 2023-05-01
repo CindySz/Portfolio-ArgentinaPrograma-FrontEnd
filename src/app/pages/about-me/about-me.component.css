@@ -1,7 +1,7 @@
 
-
+@import "~bootstrap-icons/font/bootstrap-icons.css";
     .titleAboutMe{
-       padding-top: 4%;
+       padding-top: 4rem;
     }
 
     h3{
@@ -12,4 +12,54 @@
     img{
       width: 100%;
     }
+
+
+    textarea{
+      background:none;
+      border:none;
+      outline:0;
+      margin:0;
+      padding:0;
+      resize: none;
+    width: 100%;
+    height: 22rem;
+      text-align: justify;  
+ }
+
+
+
+ .bi{
+  
+  color: rgb(158, 18, 51);
+  font-size: 22px;
+ 
+  cursor: pointer;
+ }
+
+.box1{
+ 
+  width: 100%;
+}
+ 
+
+ .iconEdit{
+ 
+  height:2rem;
+ 
+ }
+
+ button{
+  background-color: transparent;
+ 
+border: 2px solid var(--button-color);
+border-radius: 0.6em;
+color: var(--button-color);
+cursor: pointer;
+font-size: 1rem;
+font-weight: 600;
+line-height: 1;
+padding: 0.5em 0.5em;
+margin-left: 0.8rem;
+
+}
 

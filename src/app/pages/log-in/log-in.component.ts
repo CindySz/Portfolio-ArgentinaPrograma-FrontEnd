@@ -19,33 +19,15 @@ export class LogInComponent {
    
    ngOnInit():void{
     this.loginForm=this.initForm();
-
-    // if (this.auth.isLoggedIn()) {
-    //   this.router.navigate(['/home']);
-    // }
-   }
-
-//   onSubmit():void{
-//     let result="";
-
-//    if(this.contactForm.valid){
-//     Swal.fire({
-//       icon: 'success',
-//       title: 'Mensaje enviado!',
-//       timer: 1500,
-//       confirmButtonColor: '#c56869', 
-//     });
-
-//     this.contactForm.reset();
-
-//     console.log("enviado");
     
 
-//   }
-// }
+   
+   }
+
+
 
 onSubmit(): void {
-  if (this.loginForm.valid) {
+  
 
     const Toast = Swal.mixin({
       toast: true,
@@ -59,22 +41,23 @@ onSubmit(): void {
       }
     })
     
-    Toast.fire({
-      icon: 'success',
-      title: 'Se ha logueado correctamente'
-    })
+    
       
     this.auth.login(this.loginForm.value).subscribe(
      {
       next: (result) => {
         console.log(result);
+        Toast.fire({
+          icon: 'success',
+          title: 'Se ha logueado correctamente'
+        })
         this.router.navigate(['/']);
       },
       error:(err: Error) => {
         alert(err.message);
       }
   });
-  }
+  
 }
 
   initForm():FormGroup{

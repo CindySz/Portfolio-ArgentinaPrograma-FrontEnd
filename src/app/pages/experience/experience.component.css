@@ -1,3 +1,4 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 .homeExperience{
     background-color: var(--first-color); 
 }
@@ -6,22 +7,78 @@
     padding: 4% 4%;
 }
 
+ul {
+    list-style: none;
+}
 
 
 img{
     width: 80px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
     border: solid 1px  #e0986846;
-    background-color:  #e0986846;;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+    background-color:  #e0986846;
+    padding: 10px;
 }
 
-.boxImg{
-    padding-right: 2rem;
+
+
+.bi{
+    color: rgb(158, 18, 51);
+    font-size: 22px;
+    padding-left: 1.2rem;
+    cursor: pointer;
+}
+
+input{
+    background:none;
+     border:none;
+      outline:0; 
+     margin:0; 
+     padding:0;
+    width: 100%;
+    
+ 
+}
+
+textarea{
+     background:none;
+     border:none;
+     outline:0;
+     margin:0;
+     padding:0;
+     resize: none;
+      width: 100%;
+     height: 8rem;
+     
+   
+}
+
+
+
+button{
+    background-color: transparent;
+   
+  border: 2px solid var(--button-color);
+  border-radius: 0.6em;
+  color: var(--button-color);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5em 0.5em;
+  margin-left: 0.8rem;
   
+}
+
+.bi-check-circle-fill, .bi-x-circle-fill {
+    padding-left: 0rem;}
+
+.bi-plus-circle-fill{
+    font-size: 38px;
 }
 
 

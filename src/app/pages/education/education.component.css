@@ -1,10 +1,10 @@
-/*** VARS ***/
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 :root{
     --footer-color: #C08B89;
     --main-color:#c56869;
 } 
-/*** GENERAL STYLES ***/
+
 
 
 * {
@@ -24,7 +24,7 @@ body {
 .clear {
     clear: both;
 }
-/*** CARD STYLES ***/
+
 .cards-container {
     width: 793px;
     max-width: 100%;
@@ -32,13 +32,15 @@ body {
 }
 .card {
     float: left;
-    margin: 3rem;
+    
+   margin: 2rem;
 }
 .card-one {
     position: relative;
     width: 300px;
     background: #fff;
     box-shadow: 0 10px 7px -5px rgba(0, 0, 0, .4);
+    margin-right: 0rem;
 }
 .card-one header {
     position: relative;
@@ -88,9 +90,11 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+   
     overflow: hidden;
-    background: #ccc;
-    border: 3px solid #fff;
+    background: #dcbfbf;
+    border: 3px solid #dcbfbf;
+    
 }
 .card-one header .avatar img {
     position: absolute;
@@ -102,20 +106,23 @@ body {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 154px;
-    height: auto;
+    height: 100%;
 }
 .card-one h3 {
     position: relative;
-    margin: 120px 0 30px;
+    margin: 120px 34px 30px;
     text-align: center;
+    width: 10rem;
+    font-size: 1.4rem;
+    
 }
 .card-one h3::after {
     content: '';
     position: absolute;
     bottom: -22px;
-    left: 50%;
+    left: 75%;
     margin-left: -15px;
-    width: 30px;
+    width: 20px;
     height: 1px;
     background: #000;
 }
@@ -136,12 +143,107 @@ body {
     text-align: center;
 }
 
+.imgLogo{
+    width:500px;
+    
+}
+
+input{
+    background:none;
+     border:none;
+      outline:0; 
+     margin:0; 
+     padding:0;
+    width: 15.5rem;
+    
+    
+ 
+}
+
+.bi{
+    color: rgb(158, 18, 51);
+    font-size: 22px;
+    padding-left: 1.2rem;
+    cursor: pointer;
+}
+
+button{
+    background-color: transparent;
+   
+  border: 2px solid var(--button-color);
+  border-radius: 0.6em;
+  color: var(--button-color);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5em 0.4em;
+  margin-left: 1rem;
+  
+ 
+  
+  
+}
+
+.bi-check-circle-fill, .bi-x-circle-fill {
+    padding-left: 0rem;}
+
+.bi-plus-circle-fill{
+    font-size: 38px;
+}
+
+.btnSaveCancel{
+    
+    width: 100%;
+    
+}
+.boxSmall{
+   
+    margin-right: 16%;
+    margin-bottom: 4rem;
+}
+
+
+
+
+ul {
+    list-style: none;
+}
+
+
+
+.inputPost{
+    width: 100%;
+}
+
+
+
 @media only screen and (max-width: 810px) {
     .card {
       float: none;
       margin-left: auto;
       margin-right: auto;
     }
+
+   
+  }
+
+
+  @media only screen and (max-width: 810px) {
+
+    .card {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      .card-one {
+         
+          margin: 0.5rem;
+      }
+
+
+
   }
 
 

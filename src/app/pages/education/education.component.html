@@ -1,45 +1,114 @@
-<section>
+<section >
 
-    <h2 class="educTitle text-center ">Educación</h2>
-    <div class="d-flex  flex-wrap flex-row justify-content-center">
+    <h2 class="educTitle text-center ">Educación <i  *ngIf="auth.isLoggedIn()" (click)="clickAddEducation()" class="bi bi-plus-circle-fill"></i></h2>
+
+    
+
+    <div class="container" *ngIf="addEducation">
+      <div class="box d-flex flex-row justify-content-center  pb-4">
+      
+         
+          <div  class="w-50 mb-4" >
+          <div>
+      
+      
+      
+      <form class="d-flex flex-row justify-content-center"   [formGroup]="postEducationForm" (ngSubmit)="onSubmitPostEducation()"  > 
+             
+      
+          <div    formArrayName="postEducationform" >
+                
+             <div *ngFor="let post of postform.controls; let i=index" [formGroupName]="i">   
+                             
+             <ul>
+             <li><h6>Link de imagen del establecimiento educativo:<input class="inputPost"  formControlName="img"  [ngStyle]="addEducation ? styles :  null"     [readonly]="!addEducation" id="Img" name="imgPost" />  </h6></li>
+             <li><h6>Titulo:<input class="inputPost"   formControlName="title"  [ngStyle]="addEducation ? styles :  null"     [readonly]="!addEducation"  id="titlePost" name="titlePost"  /></h6></li>
+             <li>  <h6>Establecimiento educativo: <input  class="inputPost"  formControlName="educationalEstablishment"  [ngStyle]="addEducation ? styles :  null"     [readonly]="!addEducation" id="educationalEstablishmentPost" name="educationalEstablishmentPost"/></h6> </li>
+             <li><h6> Fecha:<input class="inputPost"  formControlName="date" [ngStyle]="addEducation ? styles :  null"     [readonly]="!addEducation" id="datePost" name="datePost" /></h6></li>
+            <div class="d-flex flex-row justify-content-center" >
+             <button type="button"  (click)="cancelEditPost()" > <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+             <button  type="submit"  > <i class="bi bi-check-circle-fill" ></i> Guardar</button>
+            </div>
+         
+         </ul>
+         </div>
+         </div>
+      
+         
+         
+         
+          </form>
+      
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="d-flex  flex-wrap flex-row justify-content-center ">
+     
 
         
+      <div *ngFor="let item of educationArray;  let i = index" >
 
+      
+
+        <form [formGroup]="educationForm" (ngSubmit)="onSubmit(item,i)" > 
+          
+          <div formArrayName="educationFormArray" >
+               
+             <form  [formGroupName]="i">
+
+              <i  *ngIf="auth.isLoggedIn()" (click)="deleteEducation(item)" class="bi bi-trash3-fill"></i>
+              <i *ngIf="auth.isLoggedIn()" (click)="edit(i)" class="bi bi-pencil-square"></i>
+            
 
           <div class="card card-one">
             <header>
               <div class="avatar">
-                <img src="../../../assets/img/uba.png" alt="Establecimiento Educativo" />
+                <img src={{item.img}} alt={{item.educationalEstablishment}} />
               </div>
             </header>
         
-            <h3>Lic. en <br>Administración</h3>
-            <div class="desc">
-                Universidad de Buenos Aires <br> 2015-Actual.
+            <h3><input formControlName="title" [ngStyle]="editModeOn[i] ? styles :  null"  value="{{item.title}}"  [readonly]="!editModeOn[i]"  id="title" name="title"/></h3>
+            <div class="desc"><input class="desc" formControlName="educationalEstablishment" [ngStyle]="editModeOn[i] ? styles :  null"  value="{{item.educationalEstablishment}}"  [readonly]="!editModeOn[i]"  id="educationalEstablishment" name="educationalEstablishment"/>
+                 <br>  <input class="desc" formControlName="date" [ngStyle]="editModeOn[i] ? styles :  null"  value="{{item.date}}"  [readonly]="!editModeOn[i]" id="date" name="date"/>
             </div>
           
             <div class="footerClass">
             </div>
+            
+          </div>
+          
+
+        </form>
+        
+        </div>
+        
+        <div class="btnSaveCancel d-flex  p  justify-content-center ">
+          <div class="boxSmall">
+          <button type="button" className="btnCancelSave" (click)="cancelEditMode(item,i)" *ngIf="editModeOn[i]"> <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+          <button  type="submit" className="btnCancelSave"   *ngIf="editModeOn[i]"> <i class="bi bi-check-circle-fill" ></i> Guardar</button>
+        </div>
+          </div>
+      </form>
+      
           </div>
 
 
 
    
-  <div class="card card-one">
-    <header>
-      <div class="avatar">
-        <img src="../../../assets/img/DH.png" alt="Establecimiento Educativo 2" />
-      </div>
-    </header>
-
-    <h3>Certified Tech <br> Developer</h3>
-    <div class="desc">
-      Digital House <br> 2021-Actual.
-    </div>
   
-    <div class="footerClass">
-    </div>
-  </div>
+  
+  
 
 
   

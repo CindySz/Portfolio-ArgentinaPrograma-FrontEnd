@@ -24,17 +24,17 @@
         <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="skill">Habilidades</a></li>
         <li><a class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="proyect">Proyectos</a></li>
         <li><a  class="nav-item"  routerLinkActive="active" [routerLinkActiveOptions]="linkActiveOptions" routerLink="" fragment="contact">Contacto</a></li>
+       
+          <button  class="btn" *ngIf="!auth.isLoggedIn()" routerLink="/log-in"> Log in </button>
+          <button  class="btn"  *ngIf="auth.isLoggedIn()" routerLink="/" (click) = "logOut()"> Log out </button>
+          <!-- <img   src="../../../assets/img/icon-spain.png" alt="spanish">
+          <img  class="en" src="../../../assets/img/icon-en.png" alt="english">   -->
       
       </ul>
 
     </div>
 
-      <div class="language">
-        <button  class="btn" *ngIf="!auth.isLoggedIn()" routerLink="/log-in"> Log in </button>
-        <button  class="btn"  *ngIf="auth.isLoggedIn()" routerLink="/" (click) = "logOut()"> Log out </button>
-        <!-- <img   src="../../../assets/img/icon-spain.png" alt="spanish">
-        <img  class="en" src="../../../assets/img/icon-en.png" alt="english">   -->
-    </div>
+    
      
     </div>
 

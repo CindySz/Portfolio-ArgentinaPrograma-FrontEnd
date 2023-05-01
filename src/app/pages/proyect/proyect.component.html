@@ -1,60 +1,141 @@
 <section>
 
-    <div class="container pb-5">
+    <div class=" container pb-5">
 
-    <h2 class="educTitle text-center ">Proyectos</h2>
-    <div class="d-flex flex-row flex-wrap justify-content-center gap-3">
-        <div class="ag-format-container">
+      
+      
+      <h2 class="educTitle text-center ">Proyectos <i  *ngIf="auth.isLoggedIn()" (click)="clickAddProyect()" class="bi bi-plus-circle-fill"></i></h2>
+      
+     
+
+
+
+        <div class="container" *ngIf="addProyect">
+          <div class=" d-flex flex-row justify-content-center  pb-4">
+          
+             
+              <div  class="w-50 mb-4" >
+              <div>
+          
+          
+          
+          <form class="d-flex flex-row justify-content-center"   [formGroup]="proyectPostForm" (ngSubmit)="onSubmitPostProyect()"  > 
+                 
+          
+              <div    formArrayName="postProyectArrayForm" >
+                    
+                 <div *ngFor="let post of postform.controls; let i=index" [formGroupName]="i">   
+                                 
+                 <ul>
+                 <li><h6>Titulo:<input class="inputPost"  formControlName="title"  [ngStyle]="addProyect ? styles :  null"     [readonly]="!addProyect" id="titleProyect" name="titleProyect" />  </h6></li>
+                 <li><h6>Link imagen:<input class="inputPost"   formControlName="img"  [ngStyle]="addProyect ? styles :  null"     [readonly]="!addProyect"  id="imgProyect" name="imgProyect"  /></h6></li>
+                 <li><h6>Descripción:<input class="inputPost"  formControlName="description"  [ngStyle]="addProyect ? styles :  null"     [readonly]="!addProyect" id="descriptionProyect" name="descriptionProyect" />  </h6></li>
+                 <li><h6>Link del código:<input class="inputPost"   formControlName="linkCode"  [ngStyle]="addProyect ? styles :  null"     [readonly]="!addProyect"  id="linkCode" name="linkCode"  /></h6></li>
+                <div class="d-flex flex-row justify-content-center" >
+                 <button type="button"  (click)="cancelPostProyect()" > <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+                 <button  type="submit"  > <i class="bi bi-check-circle-fill" ></i> Guardar</button>
+                </div>
+             
+             </ul>
+             </div>
+             </div>
+          
+             
+             
+             
+              </form>
+          
+          </div>
+          </div>
+          </div>
+          </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div>
+            <div>
+
+        <div class="containerCards ag-format-container  ">
+      <div *ngFor="let item of proyectArray;  let i = index" >
+      <form   [formGroup]="proyectForm" (ngSubmit)="onSubmitProyect(item,i)" > 
+          
+          <div formArrayName="proyectFormArray" >
+               
+             <form  [formGroupName]="i">
+
+                  <div class="text-end">
+                   <i  *ngIf="auth.isLoggedIn()" (click)="deleteProyect(item)" class="bi bi-trash3-fill"></i>
+                   <i *ngIf="auth.isLoggedIn()" (click)="edit(i)" class="bi bi-pencil-square"></i> 
+                  </div>
             <div class="ag-courses_box">
               <div class="ag-courses_item">
                 <div  class="ag-courses-item_link">
                   <div class="ag-courses-item_bg"></div>
           
-                  <div class="ag-courses-item_title">
-                    Portafolio
-                  </div>
-          
-                  <div class="ag-courses-item_date-box">
-                    <p class="ag-courses-item_date">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolorem, suscipit maiores aut ex architecto omnis rem officia iste alias doloribus. Fugit repellendus nesciunt sit inventore at? Nam, laudantium sed?  Nam, laudantium sed?  Nam, laudantium sed? Nam, laudantium sed? 
-                  </div>
-                  <button class="buttonProyect"> Código</button>
-                </div>
-              </div>
-          
-              
-          </div>
-
-          
-        </div>
-
-        <div class="ag-format-container">
-            <div class="ag-courses_box">
-              <div class="ag-courses_item">
-                <div  class="ag-courses-item_link">
-                  <div class="ag-courses-item_bg"></div>
-          
-                  <div class="ag-courses-item_title">
-                    Portafolio
-                  </div>
-          
-                  <div class="ag-courses-item_date-box">
-                    <p class="ag-courses-item_date">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolorem, suscipit maiores aut ex architecto omnis rem officia iste alias doloribus. Fugit repellendus nesciunt sit inventore at? Nam, laudantium sed?  Nam, laudantium sed?  Nam, laudantium sed? Nam, laudantium sed? 
-                  </div>
-                  <button class="buttonProyect"> Código</button>
-                </div>
-              </div>
-          
-              
-          </div>
-
-          
-        </div>
-
-
+                  <div>
+                    <input  class="ag-courses-item_title"  formControlName="title" [ngStyle]="editModeOn[i] ? styles :  null"  value="{{item.title}}"  [readonly]="!editModeOn[i]" id="title" name="title"/>
   
+                  </div>
+          
+                  <div class="ag-courses-item_date-box">
+                    <!-- <img src="https://e1.pxfuel.com/desktop-wallpaper/847/151/desktop-wallpaper-fondos-de-pantalla-de-programacion-y-desarrollo-web-reactjs.jpg"/> -->
+                    <p class="ag-courses-item_date">
+                      <textarea  class="ag-courses-item_date"  formControlName="description" [ngStyle]="editModeOn[i] ? styles :  null"  value="{{item.description}}"  [readonly]="!editModeOn[i]" id="title" name="title"> </textarea>
+                   
+                      </p>
+                      </div>
+                  <a href={{item.linkCode}} Target="_blank" class="buttonProyect"> Código</a>
+                </div>
+              </div>
+          
+              
+          </div>
+
+          
+          
+          
+          
+          
+        </form>
+        <div class="boxSmall">
+          <button type="button" className="btnCancelSave" (click)="cancelEditMode(item,i)" *ngIf="editModeOn[i]"> <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+          <button  type="submit" className="btnCancelSave"   *ngIf="editModeOn[i]"> <i class="bi bi-check-circle-fill" ></i> Guardar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
 </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
 </div>
 
 </section>

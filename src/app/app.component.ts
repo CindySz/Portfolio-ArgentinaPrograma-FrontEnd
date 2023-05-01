@@ -15,7 +15,7 @@ export class AppComponent {
   ngOnInit(){
 
     this.activateRoute.fragment.subscribe((value)=>{
-      console.log(value);
+      // console.log(value);
 
       this.jumpTo(value)
 

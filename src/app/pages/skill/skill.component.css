@@ -1,3 +1,6 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
 .colorPage{
     background-color: var(--first-color); 
 }
@@ -18,13 +21,55 @@
 
 .card{
     width: 7rem;
-    height: 100%;
+   
 }
 
 .box{
 
     width: 40rem;
  
+}
+
+.bi,  .bi-trash3-fill{
+  
+    color: rgb(158, 18, 51);
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    
+   }
+
+   .bi-plus-circle-fill{
+    font-size: 38px;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+.inputPost{
+    width: 100%;
+}
+
+button{
+    background-color: transparent;
+   
+  border: 2px solid var(--button-color);
+  border-radius: 0.6em;
+  color: var(--button-color);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5em 0.4em;
+  margin-left: 1rem;
+  
+ 
+  
+  
 }
 
 

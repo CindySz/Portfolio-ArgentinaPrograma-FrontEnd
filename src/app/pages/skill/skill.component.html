@@ -1,15 +1,74 @@
 <section class="colorPage">
-  <h2 class="skillTitle text-center ">Habilidades</h2>
-  <div class="container d-flex justify-content-center pb-5">
-  
-<div class="box  d-flex flex-wrap flex-row justify-content-center gap-3">
-    <div *ngFor="let item of skills">
-        <div class="card  align-items-center ">
-            <img class="imgSize card-img-top " src={{item.img}} alt={{item.alt}}>
-            <div class="card-body">
-              <p class="card-text">{{item.name}}</p>
-            </div>
+  <h2 class="skillTitle text-center ">Habilidades <i  *ngIf="auth.isLoggedIn()" (click)="clickAddSkill()" class="bi bi-plus-circle-fill"></i></h2>
+
+
+  <div class="container" *ngIf="addSkill">
+    <div class=" d-flex flex-row justify-content-center  pb-4">
+    
+       
+        <div  class="w-50 mb-4" >
+        <div>
+    
+    
+    
+    <form class="d-flex flex-row justify-content-center"   [formGroup]="skillForm" (ngSubmit)="onSubmitPostSkill()"  > 
+           
+    
+        <div    formArrayName="postSkillForm" >
+              
+           <div *ngFor="let post of postform.controls; let i=index" [formGroupName]="i">   
+                           
+           <ul>
+           <li><h6>Link del logo:<input class="inputPost"  formControlName="img"  [ngStyle]="addSkill ? styles :  null"     [readonly]="!addSkill" id="I¡img" name="imgPost" />  </h6></li>
+           <li><h6>Nombre:<input class="inputPost"   formControlName="name"  [ngStyle]="addSkill ? styles :  null"     [readonly]="!addSkill"  id="namePost" name="namePost"  /></h6></li>
+          <div class="d-flex flex-row justify-content-center" >
+           <button type="button"  (click)="cancelPostSkill()" > <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
+           <button  type="submit"  > <i class="bi bi-check-circle-fill" ></i> Guardar</button>
           </div>
+       
+       </ul>
+       </div>
+       </div>
+    
+       
+       
+       
+        </form>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container d-flex justify-content-center pb-5">
+    
+    <div class="box  d-flex flex-wrap flex-row justify-content-center gap-3">
+      <div *ngFor="let item of skillsArray">
+     <div class=" text-end">
+      <i  *ngIf="auth.isLoggedIn()" (click)="deleteSkill(item)" class="bi bi-x-circle-fill"></i>
+    </div>
+     
+      <div class="card  align-items-center ">
+        <img class="imgSize card-img-top " src={{item.img}} alt="">
+        <div class="card-body">
+          <p class="card-text">{{item.name}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
