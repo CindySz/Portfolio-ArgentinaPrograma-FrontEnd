@@ -28,6 +28,7 @@ export class ProyectComponent {
  editModeOn: boolean[] = [];
  addProyect:boolean=false;
  API_NAME="proyect"
+ homeSpot="../../../assets/img/homespot.png"
 
 
   constructor(private crud: CrudService, public auth: AuthService, private readonly formBuilder: FormBuilder,  ) {}

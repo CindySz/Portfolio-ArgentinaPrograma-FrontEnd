@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { CrudService } from 'src/app/service/crud.service';
 
+
+
 @Component({
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
@@ -32,12 +34,14 @@ export class AboutMeComponent {
   }
 
   ngOnInit(): void {
+   
+    
     this.crud.getApi(this.API_NAME).subscribe(text => {
      
-    ;
+    
       this.textAboutMe=text[0].description;
       
-  ;
+  
 
     });
   }

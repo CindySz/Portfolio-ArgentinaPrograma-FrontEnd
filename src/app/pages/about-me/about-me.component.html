@@ -1,12 +1,12 @@
 <section class="container">
   <article>
     <h2 class="titleAboutMe text-center">Sobre mí</h2>
-
+  
     <div class="row">
-      <div class="col-sm-12 col-lg-6 p-5">
+      <div class="col-sm-12 col-lg-6 p-5" >
         <div class="box pt-5 d-flex justify-content-between">
           <div class="box1">
-            <h3>Cindy Suarez</h3>
+            <h3  >Cindy Suarez</h3>
             <textarea [ngStyle]="editAboutMe ? styles :  null"  [(ngModel)]="textAboutMe"   [readonly]="!editAboutMe" > </textarea>
             <button className="btnCancelSave" (click)="cancelEditMode()" *ngIf="editAboutMe"> <i class="bi bi-x-circle-fill" > </i> Cancelar</button>
     <button  type="submit" className="btnCancelSave"  (click)="submitSaveEditMode()"  *ngIf="editAboutMe"> <i class="bi bi-check-circle-fill" ></i> Guardar</button>
@@ -24,8 +24,8 @@
         </div>
       </div>
 
-      <div class="order-lg-first col-sm-12 col-lg-6">
-        <img
+      <div class="order-lg-first col-sm-12 col-lg-6 " >
+        <img 
           src="../../../assets/img/Free Vectors, Stock Photos & PSD Downloads _ Freepik.jpg"
           alt="Imagen"
         />

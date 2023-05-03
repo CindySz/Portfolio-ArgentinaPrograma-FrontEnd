@@ -120,7 +120,7 @@ article {
 }
 
 .socialnetwork {
-  background-color: var(--first-color);
+
   margin-top: 2rem;
 
 
@@ -149,11 +149,15 @@ img {
   display: none;
 }
 
+.wave{
+ display: none;
+ }
+
 
 @media only screen and (min-width: 768px) {
 
 
-  .homePage {}
+  
 
 
   .homeSection {
@@ -175,21 +179,14 @@ img {
 
   }
 
-  .line {
-    display: block;
-    background-color: #E09868;
-    width: 6px;
-    height: 10rem;
-    position: relative;
-    left: 0.5rem;
-
-  }
+  
 
   .socialnetwork {
-    background-color: var(--first-color);
+    background-color: transparent;
     position: absolute;
     bottom: 0;
     left: 4%;
+    z-index: 1;
 
   }
 
@@ -210,7 +207,44 @@ img {
 
   img {
     display: block;
-    width: 100%;
+    width: 410px;
+    height: 390px;
+    object-fit: cover;
+    border-radius:50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    
   }
 
+  .line {
+    display: block;
+    background-color:#E09868;
+    width: 6px;
+    height: 10rem;
+    position: relative;
+    left: 0.5rem;
+
+  }
+
+ 
+
+ 
+
 }
+
+
+/* @media only screen and (min-width: 1538px) {
+
+    .wave{
+    display: block;
+   position: relative;
+   top: 31.6rem;
+   z-index: 1;
+  } 
+
+  .line {
+    
+    background-color:transparent;
+   
+
+  }
+} */

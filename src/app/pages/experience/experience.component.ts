@@ -2,8 +2,7 @@ import { getLocaleMonthNames } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
+import {  Subject } from 'rxjs';
 
 import { AuthService } from 'src/app/service/auth.service';
 import { CrudService } from 'src/app/service/crud.service';
@@ -49,24 +48,9 @@ export class ExperienceComponent {
   ngOnInit(): void {
 
 
-
-    // this.crud.getExperience().subscribe(experience => {
-    //   this.workExperience = experience;
-  
-    //   this.initExp();
-
-    // });
-
-    // this.getAll()
-    // this.crud.refreshGet.subscribe((response)=>{
-    //   this.getAll()
-
-    // })
+    
 
     this.getAll()
-    // this.crud.getRefreshPost().subscribe(() => {
-    //   this.crud.getExperience().subscribe(experience => this.workExperience = experience);
-    // });
     
     this.experienceForm = this.formBuilder.group({
       expform: this.formBuilder.array([])
@@ -100,10 +84,6 @@ this.workExperience = experience;
       this.initExp();
 
 
-      
-     
-    
-
     });
   }
 
@@ -129,6 +109,7 @@ this.workExperience = experience;
 
 
   onDeleteExperience(experience: any) {
+
   
     this.crud.deleteApi(this.API_NAME, experience).subscribe(() => {
       this.workExperience = this.workExperience.filter(element => element.id !== experience.id)
@@ -202,13 +183,7 @@ this.clickAdd=true;
     return this.postForm.get('postform') as FormArray;
   }  
 
-  // addPosts() {
-  //   this.postform.push(this.createPostFormGroup());
-  // }  
-
-  // removePost(index: number) {
-  //   this.postform.removeAt(index);
-  // }  
+ 
 
   createPostFormGroup(): FormGroup {
     return this.formBuilder.group({
@@ -263,35 +238,6 @@ this.clickAdd=true;
         console.log(err);
       }
     })
-
-    // this.crud.postExperience(exp).subscribe(() => {
-      
-      
-    //   this.crud.getRefreshPost()
-      
-      
-      
-    //     .pipe(
-    //       switchMap(() => this.crud.getExperience()),
-    //       takeUntil(this.unsubscribe)
-          
-    //     )
-    //     .subscribe((response) => {
-    //       this.postForm.reset();
-          
-          
-          
-             
-  
-    //     });
-    // });
-
-    
-    
-    
-
-
-
 
 
 

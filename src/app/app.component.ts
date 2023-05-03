@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +14,7 @@ export class AppComponent {
     private activateRoute:ActivatedRoute,
     private router: Router){}
   ngOnInit(){
+    
 
     this.activateRoute.fragment.subscribe((value)=>{
       // console.log(value);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {  BehaviorSubject, Observable, Subject, delay, merge } from 'rxjs';
-import{HttpClient, HttpHeaders} from '@angular/common/http'
-import { tap, map, switchMap } from 'rxjs/operators';
+import{HttpClient} from '@angular/common/http'
+import { tap,  switchMap } from 'rxjs/operators';
 
 
 
@@ -9,16 +9,12 @@ import { tap, map, switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CrudService {
-  // private apiUrl='http://localhost:5000/workExperience'
-  private apiUrlWorkExperience="http://localhost:8080/api/work-experiences"
 
-  API_URL="http://localhost:8080/api"
-  // private refresh=new Subject<void>();
+
+  API_URL="https://portfolio-backend-ams5.onrender.com/api"
+
   private refreshPost=new BehaviorSubject<void>(undefined);
-  // private refreshGetExperience = new BehaviorSubject<void>(undefined);
-  // get refreshGet(){
-  //   return this.refresh;
-  // }
+  
   
 
  
@@ -32,31 +28,12 @@ export class CrudService {
   }
 
    
-    // return  this.http.get<any[]>(this.apiUrlWorkExperience)
-    
 
   
 
-   postExperience(payload:any):Observable<any[]>{
-    return this.http.post<any>(this.apiUrlWorkExperience, payload).pipe(
-      tap(()=>{
-      this.refreshPost.next();
-    }))
-
-    // return this.http.post<any>(this.apiUrlWorkExperience, payload)
-
-    // return this.refreshPostExperience.pipe(
-    //   switchMap(() => this.http.post<any[]>(this.apiUrlWorkExperience, payload))
-    // );
-
-   }
 
  
-  // getRefreshGet() {
-  //   return this.refreshGetExperience.asObservable();
-  // }
-
-
+ 
 
 
    getApi(name:string):Observable<any[]>{
@@ -71,12 +48,12 @@ export class CrudService {
 
   
 
-  deleteApi(name:any,idData:any):Observable<any[]>{
+  deleteApi(name:string,idData:any):Observable<any[]>{
  
    return this.http.delete<any>(`${this.API_URL}/${name}/${idData.id}`)
     
   }
-  postApi(name:any, payload:any):Observable<any[]>{
+  postApi(name:string, payload:any):Observable<any[]>{
     return this.http.post<any>(`${this.API_URL}/${name}`, payload).pipe(
       tap(()=>{
       this.refreshPost.next();
@@ -85,7 +62,7 @@ export class CrudService {
 
    }
 
-   putApi(name:any, payload:any):Observable<any[]>{
+   putApi(name:string, payload:any):Observable<any[]>{
     const url= `${this.API_URL}/${name}/${payload.id}`
     return this.http.put<any>(url, payload)
      

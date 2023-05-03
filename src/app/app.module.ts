@@ -16,9 +16,12 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { SpinnerModule } from './components/spinner/spinner.module';
+import { SpinnerInterceptor } from './components/interceptors/spinner.interceptor';
 
 
 
@@ -41,6 +44,7 @@ import { MatTableModule } from '@angular/material/table';
     ContactComponent,
     FooterComponent,
    
+   
     
 
   
@@ -54,13 +58,13 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
-
+    MatTableModule,
+    SpinnerModule
 
    
   ],
 
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
